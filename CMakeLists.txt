@@ -1,2 +1,11 @@
-# This project is a simple C++ application that prints "Hello world" to the console.
-# It is managed using CMake for build configuration.
+cmake_minimum_required(VERSION 3.10)
+
+# Project name
+project(csad2526KI404PohrebniakAndrianYuriyovich21)
+
+# Set the C++ standard
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
+
+# Add the executable
+add_executable(csad2526KI404PohrebniakAndrianYuriyovich21 name.cpp)
