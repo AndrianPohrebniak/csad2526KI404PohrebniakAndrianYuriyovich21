@@ -1,3 +1,11 @@
 1. 
 a)Request: I have for u interested task, please create me a jsut simple program in c++ with file name.cpp and print Hello world only this, thanks
 b) Response: I have created a simple C++ program in name.cpp that prints "Hello world". Let me know if you need anything else!
+
+2.
+a)Hey, please genarete some text shortly about my projects thank u in this file which i attached to you
+b)I have added a brief description of your project to the CMakeLists.txt file. Let me know if you need further assistance!
+3. 
+a)Request: I'm not sure that's correct MakeLists.txt please generate for C++ projects include all my active files
+b)Response: I have updated the CMakeLists.txt file to correctly configure your C++ project, including the active file name.cpp. Let me know if you need further adjustments!
+
