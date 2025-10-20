@@ -9,3 +9,22 @@ b)I have added a brief description of your project to the CMakeLists.txt file. L
 a)Request: I'm not sure that's correct MakeLists.txt please generate for C++ projects include all my active files
 b)Response: I have updated the CMakeLists.txt file to correctly configure your C++ project, including the active file name.cpp. Let me know if you need further adjustments!
 
+4.
+a)Request: Hey, Create a simple header file that declares an add function which returns the sum of two integers.
+b)Response:I have created a simple header file math_operations.h that declares an add function to return the sum of two integers. Let me know if you need further assistance!
+
+5.
+a)Request: Implement the add function declared in math_operations.h
+b)Response: I have implemented the add function in math_operations.cpp as declared in math_operations.h. Let me know if you need further assistance!
+
+6.
+a)Request: Hey again, please write unit tests for the add function from math_operations.h
+b)Response: I have added unit tests for the add function in unit_tests.cpp. The tests cover various cases, including positive, negative, and zero values. Let me know if you need further assistance!
+
+7.
+a)Request: And please update mu CMakeList with new function, test and other things, thank you
+b)Response: I have updated the CMakeLists.txt file to include the math_operations.cpp file in the main executable and added a separate target for unit tests. Let me know if you need further adjustments!
+
+8.
+a)Request
+b)Response
