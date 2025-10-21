@@ -26,5 +26,19 @@ a)Request: And please update mu CMakeList with new function, test and other thin
 b)Response: I have updated the CMakeLists.txt file to include the math_operations.cpp file in the main executable and added a separate target for unit tests. Let me know if you need further adjustments!
 
 8.
+a)Request: Hey my friends, please rewrite the tests using GoogleTest (#include <gtest/gtest.h> and TEST(...)) instead of assert and a custom main(), since the project uses GTest for unit testing, thank you very much,
+b)Response: I have rewritten the tests to use GoogleTest framework with #include <gtest/gtest.h> and TEST(...) macros instead of assert and custom main().
+
+However, there are compile errors because GoogleTest is not installed or configured in your project. You'll need to either:
+
+Install GoogleTest on your system
+Or add GoogleTest as a dependency in your CMakeLists.txt file
+Would you like me to help you update the CMakeLists.txt to include GoogleTest as a dependency?
+
+9.
+a)Request
+b)Response
+
+10.
 a)Request
 b)Response

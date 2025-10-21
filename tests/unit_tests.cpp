@@ -1,21 +1,17 @@
 #include "math_operations.h"
-#include <cassert>
-#include <iostream>
+#include <gtest/gtest.h>
 
-void test_add()
+TEST(MathOperationsTest, AddFunction)
 {
-    // Test cases
-    assert(add(2, 3) == 5);
-    assert(add(-1, 1) == 0);
-    assert(add(0, 0) == 0);
-    assert(add(-5, -5) == -10);
-    assert(add(100, 200) == 300);
-
-    std::cout << "All tests passed!" << std::endl;
+    EXPECT_EQ(add(2, 3), 5);
+    EXPECT_EQ(add(-1, 1), 0);
+    EXPECT_EQ(add(0, 0), 0);
+    EXPECT_EQ(add(-5, -5), -10);
+    EXPECT_EQ(add(100, 200), 300);
 }
 
-int main()
+int main(int argc, char **argv)
 {
-    test_add();
-    return 0;
+    ::testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
 }
