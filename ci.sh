@@ -22,11 +22,20 @@ cd build
 
 # Configure the project using CMake
 echo "Configuring project with CMake..."
-cmake ..
+if [[ "$RUNNER_OS" == "Windows" ]]; then
+    # Windows: Use default generator with MSVC
+    cmake .. -DCMAKE_BUILD_TYPE=Release
+elif [[ "$RUNNER_OS" == "macOS" ]]; then
+    # macOS: Use Xcode or Unix Makefiles
+    cmake .. -DCMAKE_BUILD_TYPE=Release
+else
+    # Linux: Use default generator
+    cmake .. -DCMAKE_BUILD_TYPE=Release
+fi
 
 # Build the project
 echo "Building the project..."
-cmake --build .
+cmake --build . --config Release
 
 # Run tests using CTest
 echo "Running tests..."
