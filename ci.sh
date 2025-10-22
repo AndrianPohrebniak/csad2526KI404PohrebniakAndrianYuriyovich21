@@ -7,13 +7,14 @@ set -e  # Exit on any error
 
 echo "Starting build process..."
 
-# Create build directory if it doesn't exist
-if [ ! -d "build" ]; then
-    echo "Creating build directory..."
-    mkdir build
-else
-    echo "Build directory already exists."
+# Clean and create build directory
+if [ -d "build" ]; then
+    echo "Removing existing build directory..."
+    rm -rf build
 fi
+
+echo "Creating fresh build directory..."
+mkdir build
 
 # Change to build directory
 echo "Changing to build directory..."
