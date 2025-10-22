@@ -7,6 +7,12 @@ project(csad2526KI404PohrebniakAndrianYuriyovich21)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
+# Force static runtime for Windows to match GoogleTest
+if(WIN32)
+    set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+    set(gtest_force_shared_crt OFF CACHE BOOL "" FORCE)
+endif()
+
 # Add the main executable
 add_executable(csad2526KI404PohrebniakAndrianYuriyovich21 name.cpp math_operations.cpp)
 
