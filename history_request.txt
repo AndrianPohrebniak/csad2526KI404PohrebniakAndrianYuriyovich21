@@ -110,7 +110,24 @@ The workflow will automatically run your `ci.sh` script on all three operating s
 
 12
 a)Request:
+Hey, Again please add possibility to download artifacts as last stage something like thsi - name: Upload build artifacts
+uses: actions/upload-artifact@v4
+with:
+name: build-${{ matrix.os }}
+path: build/
 b)Response: 
+What I changed
+
+Added a new step after Deploy in ci.yml that uses actions/upload-artifact@v4 to upload the build directory for each OS in the matrix. The artifact name is build-${{ matrix.os }}.
+How to verify locally / in GitHub Actions
+
+Push the branch and open the workflow run. After the run completes, open the job and look for the "Artifacts" section (top-right) — you can download the uploaded archive(s).
+Locally you can inspect build to confirm the files that will be uploaded.
+If you want, I can:
+
+Filter which files are uploaded (for example only the executable or only test results).
+Compress artifacts with a custom name or include build logs.
+Add an expiry for artifacts (they default to 90 days in GitHub Actions).
 12
 a)Request:
 b)Response: 
