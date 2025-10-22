@@ -7,13 +7,14 @@ set -e  # Exit on any error
 
 echo "Starting build process..."
 
-# Create build directory if it doesn't exist
-if [ ! -d "build" ]; then
-    echo "Creating build directory..."
-    mkdir build
-else
-    echo "Build directory already exists."
+# Clean and create build directory
+if [ -d "build" ]; then
+    echo "Removing existing build directory..."
+    rm -rf build
 fi
+
+echo "Creating fresh build directory..."
+mkdir build
 
 # Change to build directory
 echo "Changing to build directory..."
@@ -21,11 +22,20 @@ cd build
 
 # Configure the project using CMake
 echo "Configuring project with CMake..."
-cmake ..
+if [[ "$RUNNER_OS" == "Windows" ]]; then
+    # Windows: Use default generator with MSVC
+    cmake .. -DCMAKE_BUILD_TYPE=Release
+elif [[ "$RUNNER_OS" == "macOS" ]]; then
+    # macOS: Use Xcode or Unix Makefiles
+    cmake .. -DCMAKE_BUILD_TYPE=Release
+else
+    # Linux: Use default generator
+    cmake .. -DCMAKE_BUILD_TYPE=Release
+fi
 
 # Build the project
 echo "Building the project..."
-cmake --build .
+cmake --build . --config Release
 
 # Run tests using CTest
 echo "Running tests..."

@@ -1,0 +1,59 @@
+name: CI/CD Pipeline
+
+# Trigger on push or pull_request to branches containing 'develop' or 'master'
+on:
+  push:
+    branches:
+      - '**develop**'
+      - '**main**'
+  pull_request:
+    branches:
+      - '**develop**'
+      - '**main**'
+
+jobs:
+  cross_build:
+    name: Cross Platform Build
+    runs-on: ${{ matrix.os }}
+    
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    
+    steps:
+      # Step 1: Check out the code
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      # Step 2: Install CMake (if required)
+      - name: Install CMake
+        uses: jwlawson/actions-setup-cmake@v1.14
+        with:
+          cmake-version: '3.16'
+      
+      # Step 2.5: Setup compilers for each platform
+      - name: Setup MSVC (Windows)
+        if: runner.os == 'Windows'
+        uses: ilammy/msvc-dev-cmd@v1
+      
+      - name: Setup Xcode (macOS)
+        if: runner.os == 'macOS'
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: latest-stable
+      
+      # Step 3: Run configuration and build commands
+      - name: Run build script
+        shell: bash
+        run: |
+          chmod +x ci.sh
+          ./ci.sh
+      
+      # Step 4: Deploy step (mock deployment)
+      - name: Deploy
+        shell: bash
+        run: |
+          echo "Deploying application..."
+          echo "Build artifacts ready for deployment on ${{ matrix.os }}"
+          ls -la build/
+          echo "Deployment completed successfully!"
