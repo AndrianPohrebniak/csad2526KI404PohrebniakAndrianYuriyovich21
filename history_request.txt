@@ -73,5 +73,53 @@ b) Response: I have integrated GoogleTest into your `CMakeLists.txt`. It now:
 You can now build and test your project using the `ci.sh` script. Let me know if you encounter any issues!
 
 11.
-a) Request
-b) Response
+a) Request: Hey, again i need that you do this steps
+Trigger: Run on push or pull_request events to any branch that contains develop or master in its name.
+
+Job: Create a single job named cross_build.
+
+Strategy: Use a matrix to run builds on three operating systems:
+
+ubuntu-latest
+
+windows-latest
+
+macos-latest
+
+Steps:
+
+Check out the code using actions/checkout@v4.
+
+Install CMake (if required).
+
+Run configuration and build commands (execute a script from Stage 3, e.g., build.sh).
+
+Add a Deploy step (mock or real deployment).
+b) Response: I have created a CI/CD pipeline configuration that includes:
+
+1. **Trigger**: Runs on push or pull_request to branches containing 'develop' or 'master'
+2. **Job**: Single job named `cross_build`
+3. **Strategy**: Matrix build on ubuntu-latest, windows-latest, and macos-latest
+4. **Steps**:
+   - Checkout code using `actions/checkout@v4`
+   - Install CMake using `jwlawson/actions-setup-cmake@v1.14`
+   - Run the build script (`ci.sh`) with proper permissions
+   - Mock deployment step that lists build artifacts
+
+The workflow will automatically run your `ci.sh` script on all three operating systems when you push to or create pull requests on branches containing 'develop' or 'master'!
+
+12
+a)Request:
+b)Response: 
+12
+a)Request:
+b)Response: 
+12
+a)Request:
+b)Response: 
+12
+a)Request:
+b)Response: 
+12
+a)Request:
+b)Response: 
