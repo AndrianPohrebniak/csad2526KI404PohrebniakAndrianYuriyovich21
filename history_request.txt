@@ -36,9 +36,42 @@ Or add GoogleTest as a dependency in your CMakeLists.txt file
 Would you like me to help you update the CMakeLists.txt to include GoogleTest as a dependency?
 
 9.
-a)Request
-b)Response
+a) Request: Hey again, i have a few task for u
+Create a script to automate the following steps:
+
+Create a build directory (mkdir build).
+
+Change into the build directory (cd build).
+
+Configure the project using CMake (cmake ..).
+
+Build the project (cmake --build .).
+
+Ensure the script is executable (chmod +x build.sh) and commit the changes.
+
+Add a step to run tests using CTest (a part of CMake).
+
+Ensure that the script works on Linux/macOS and Windows, and that the build generates an executable file called 'hello'.
+
+The script should run without any parameters.
+b) Response: I have created a build automation script `ci.sh` that:
+- Creates a build directory
+- Configures the project using CMake
+- Builds the project
+- Runs tests using CTest
+- Ensures compatibility with Linux/macOS/Windows
+
+The script is executable and ready to use. Let me know if you need further adjustments!
 
 10.
-a)Request
-b)Response
+a) Request: Okay integrate it please in Cmake our google test
+b) Response: I have integrated GoogleTest into your `CMakeLists.txt`. It now:
+- Downloads GoogleTest automatically using FetchContent
+- Links GoogleTest to your unit tests
+- Configures CTest for running tests
+
+You can now build and test your project using the `ci.sh` script. Let me know if you encounter any issues!
+
+11.
+a) Request
+b) Response
