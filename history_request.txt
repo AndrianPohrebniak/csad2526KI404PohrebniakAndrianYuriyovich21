@@ -1,0 +1,142 @@
+1. 
+a)Request: I have for u interested task, please create me a jsut simple program in c++ with file name.cpp and print Hello world only this, thanks
+b) Response: I have created a simple C++ program in name.cpp that prints "Hello world". Let me know if you need anything else!
+
+2.
+a)Hey, please genarete some text shortly about my projects thank u in this file which i attached to you
+b)I have added a brief description of your project to the CMakeLists.txt file. Let me know if you need further assistance!
+3. 
+a)Request: I'm not sure that's correct MakeLists.txt please generate for C++ projects include all my active files
+b)Response: I have updated the CMakeLists.txt file to correctly configure your C++ project, including the active file name.cpp. Let me know if you need further adjustments!
+
+4.
+a)Request: Hey, Create a simple header file that declares an add function which returns the sum of two integers.
+b)Response:I have created a simple header file math_operations.h that declares an add function to return the sum of two integers. Let me know if you need further assistance!
+
+5.
+a)Request: Implement the add function declared in math_operations.h
+b)Response: I have implemented the add function in math_operations.cpp as declared in math_operations.h. Let me know if you need further assistance!
+
+6.
+a)Request: Hey again, please write unit tests for the add function from math_operations.h
+b)Response: I have added unit tests for the add function in unit_tests.cpp. The tests cover various cases, including positive, negative, and zero values. Let me know if you need further assistance!
+
+7.
+a)Request: And please update mu CMakeList with new function, test and other things, thank you
+b)Response: I have updated the CMakeLists.txt file to include the math_operations.cpp file in the main executable and added a separate target for unit tests. Let me know if you need further adjustments!
+
+8.
+a)Request: Hey my friends, please rewrite the tests using GoogleTest (#include <gtest/gtest.h> and TEST(...)) instead of assert and a custom main(), since the project uses GTest for unit testing, thank you very much,
+b)Response: I have rewritten the tests to use GoogleTest framework with #include <gtest/gtest.h> and TEST(...) macros instead of assert and custom main().
+
+However, there are compile errors because GoogleTest is not installed or configured in your project. You'll need to either:
+
+Install GoogleTest on your system
+Or add GoogleTest as a dependency in your CMakeLists.txt file
+Would you like me to help you update the CMakeLists.txt to include GoogleTest as a dependency?
+
+9.
+a) Request: Hey again, i have a few task for u
+Create a script to automate the following steps:
+
+Create a build directory (mkdir build).
+
+Change into the build directory (cd build).
+
+Configure the project using CMake (cmake ..).
+
+Build the project (cmake --build .).
+
+Ensure the script is executable (chmod +x build.sh) and commit the changes.
+
+Add a step to run tests using CTest (a part of CMake).
+
+Ensure that the script works on Linux/macOS and Windows, and that the build generates an executable file called 'hello'.
+
+The script should run without any parameters.
+b) Response: I have created a build automation script `ci.sh` that:
+- Creates a build directory
+- Configures the project using CMake
+- Builds the project
+- Runs tests using CTest
+- Ensures compatibility with Linux/macOS/Windows
+
+The script is executable and ready to use. Let me know if you need further adjustments!
+
+10.
+a) Request: Okay integrate it please in Cmake our google test
+b) Response: I have integrated GoogleTest into your `CMakeLists.txt`. It now:
+- Downloads GoogleTest automatically using FetchContent
+- Links GoogleTest to your unit tests
+- Configures CTest for running tests
+
+You can now build and test your project using the `ci.sh` script. Let me know if you encounter any issues!
+
+11.
+a) Request: Hey, again i need that you do this steps
+Trigger: Run on push or pull_request events to any branch that contains develop or master in its name.
+
+Job: Create a single job named cross_build.
+
+Strategy: Use a matrix to run builds on three operating systems:
+
+ubuntu-latest
+
+windows-latest
+
+macos-latest
+
+Steps:
+
+Check out the code using actions/checkout@v4.
+
+Install CMake (if required).
+
+Run configuration and build commands (execute a script from Stage 3, e.g., build.sh).
+
+Add a Deploy step (mock or real deployment).
+b) Response: I have created a CI/CD pipeline configuration that includes:
+
+1. **Trigger**: Runs on push or pull_request to branches containing 'develop' or 'master'
+2. **Job**: Single job named `cross_build`
+3. **Strategy**: Matrix build on ubuntu-latest, windows-latest, and macos-latest
+4. **Steps**:
+   - Checkout code using `actions/checkout@v4`
+   - Install CMake using `jwlawson/actions-setup-cmake@v1.14`
+   - Run the build script (`ci.sh`) with proper permissions
+   - Mock deployment step that lists build artifacts
+
+The workflow will automatically run your `ci.sh` script on all three operating systems when you push to or create pull requests on branches containing 'develop' or 'master'!
+
+12
+a)Request:
+Hey, Again please add possibility to download artifacts as last stage something like thsi - name: Upload build artifacts
+uses: actions/upload-artifact@v4
+with:
+name: build-${{ matrix.os }}
+path: build/
+b)Response: 
+What I changed
+
+Added a new step after Deploy in ci.yml that uses actions/upload-artifact@v4 to upload the build directory for each OS in the matrix. The artifact name is build-${{ matrix.os }}.
+How to verify locally / in GitHub Actions
+
+Push the branch and open the workflow run. After the run completes, open the job and look for the "Artifacts" section (top-right) — you can download the uploaded archive(s).
+Locally you can inspect build to confirm the files that will be uploaded.
+If you want, I can:
+
+Filter which files are uploaded (for example only the executable or only test results).
+Compress artifacts with a custom name or include build logs.
+Add an expiry for artifacts (they default to 90 days in GitHub Actions).
+12
+a)Request:
+b)Response: 
+12
+a)Request:
+b)Response: 
+12
+a)Request:
+b)Response: 
+12
+a)Request:
+b)Response: 

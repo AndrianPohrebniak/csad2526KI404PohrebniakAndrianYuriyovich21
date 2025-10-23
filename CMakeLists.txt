@@ -1,0 +1,53 @@
+cmake_minimum_required(VERSION 3.10)
+
+# Project name
+project(csad2526KI404PohrebniakAndrianYuriyovich21)
+
+# Set the C++ standard
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
+
+# Force static runtime for Windows to match GoogleTest
+if(WIN32)
+    set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+    set(gtest_force_shared_crt OFF CACHE BOOL "" FORCE)
+    # Force GoogleTest to use static runtime
+    set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /MT")
+    set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} /MTd")
+endif()
+
+# Add the main executable
+add_executable(csad2526KI404PohrebniakAndrianYuriyovich21 name.cpp math_operations.cpp)
+
+# Download and configure GoogleTest
+include(FetchContent)
+FetchContent_Declare(
+  googletest
+  GIT_REPOSITORY https://github.com/google/googletest.git
+  GIT_TAG release-1.12.1
+)
+
+# Set GoogleTest options before making it available
+set(gtest_force_shared_crt OFF CACHE BOOL "" FORCE)
+FetchContent_MakeAvailable(googletest)
+
+# Add the unit tests executable
+add_executable(unit_tests tests/unit_tests.cpp math_operations.cpp)
+
+# Include directories for unit tests (so it can find header files)
+target_include_directories(unit_tests PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+
+# Set runtime library for unit_tests on Windows
+if(WIN32)
+    set_property(TARGET unit_tests PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+    set_property(TARGET csad2526KI404PohrebniakAndrianYuriyovich21 PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+endif()
+
+# Link GoogleTest to unit tests
+target_link_libraries(unit_tests gtest gtest_main)
+
+# Enable testing
+enable_testing()
+
+# Add the unit test
+add_test(NAME unit_tests COMMAND unit_tests)
